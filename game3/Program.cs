@@ -3,13 +3,20 @@
     class program
 
     {
+        enum Move
+        {
+            Shot=1,
+            Heal=2,
+            Buy=3
+
+        }
         static void Main()
         {
 
-            tank me = new(100, 15, 40, 3, "Igrok");//характеристики моего танка 
+            tank me = new(100, 15, 40, 3, "Igrok") ;//характеристики моего танка 
             tank enemy = new(100, 15, 40, 3, "PC");//характеристики танка противника 
-            Random r = new Random();
-            int rand;
+           
+
             while (me.HelPoint > 0 && enemy.HelPoint > 0)
             {
 
@@ -21,22 +28,35 @@
                 Console.WriteLine("Покупка патронов :C");
 
                 switch (Console.ReadKey().Key)//управление для игрока по клавишам
-                {
-                    case ConsoleKey.Z:
+                { 
+                    case  ConsoleKey.Z:
                         me.Shot(enemy);
+                        EnemyPC();
                         break;
                     case ConsoleKey.X:
                         me.Heal();
+                        EnemyPC();
                         break;
                     case ConsoleKey.C:
                         me.Buy();
+                        EnemyPC();
                         break;
+                    
                     default:
-                        Console.WriteLine("\nПропуск");
+                        Console.WriteLine("\nНажмите одну из перечисленых клавиш сверху\n");
                         break;
                 }
+             
+                Console.WriteLine("Нажмите любую клавишу чтобы продолжить");
+                Console.ReadKey();
+                Console.Clear();
+            }
+            
 
-                Console.WriteLine();
+        void EnemyPC() 
+            {
+                Random r = new Random();
+                int rand;
                 rand = r.Next(1, 3);
 
                 switch (rand)//компьютер работающий через рандом
@@ -72,12 +92,10 @@
                         }
                         break;
                 }
-                Console.WriteLine("Нажмите любую клавишу");
-                Console.ReadKey();
-                Console.Clear();
+
             }
 
-            if (me.HelPoint <= 0)//экран победы или поражения
+            if (me.HelPoint <= 0)//экран победы или поражения.
             {
                 Console.WriteLine("Поражение");
             }
@@ -86,6 +104,7 @@
                 Console.WriteLine("Победа");
             }
 
-        }
+           
+    }
     }
 }

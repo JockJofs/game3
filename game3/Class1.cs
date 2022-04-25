@@ -13,10 +13,11 @@ namespace game3
         public int Damaged;
         public int Patron;
         public string Name;
+        public int Life;
         //конструктор класса
         public tank(int a, int b, int c, int d, string f)
         {
-            HelPoint = a; Armour = b; Damaged = c; Patron = d; Name = f;
+            HelPoint = a; Armour = b; Damaged = c; Patron = d; Name = f; Life = 100;
         }
         public void Shot(tank enemy) //создаем метод выстрел
         {
@@ -53,18 +54,19 @@ namespace game3
         }
         public void Heal()//метод починки
         {
-            if (HelPoint >= 100)
+            
+            if (HelPoint <= Life)
             {
-                Console.WriteLine("Починка не нужна");
+                Console.WriteLine("\nПочинка не нужна");
             }
             else
             {
                 HelPoint += 20;
-                Console.WriteLine("Произошла починка");
+                Console.WriteLine("\nПроизошла починка");
 
-                if (HelPoint >= 100)
+                if (HelPoint >= Life)
                 {
-                    HelPoint = 100;
+                    HelPoint = Life;
                 }
 
 
@@ -75,5 +77,7 @@ namespace game3
         {
             Patron = 3;
         }
+       
+      
     }
 }
