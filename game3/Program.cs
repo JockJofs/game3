@@ -5,16 +5,16 @@
     {
         enum Move
         {
-            Shot=1,
-            Heal=2,
-            Buy=3
+            Shot,
+            Heal,
+            Buy
 
         }
         static void Main()
         {
 
-            tank me = new(100, 15, 40, 3, "Igrok") ;//характеристики моего танка 
-            tank enemy = new(100, 15, 40, 3, "PC");//характеристики танка противника 
+            Ime me = new tank(100, 15, 40, 3, "Igrok") ;//характеристики моего танка 
+            Ienemy enemy = new tank(100, 15, 40, 3, "PC");//характеристики танка противника 
            
 
             while (me.HelPoint > 0 && enemy.HelPoint > 0)
@@ -64,7 +64,7 @@
                 {
                     case 1:
 
-                        if (enemy.HelPoint > 50 && enemy.Patron > 0)
+                        if (enemy.HelPoint == enemy.Life && enemy.Patron > 0)
                         { enemy.Shot(me); }
                         else
                         {
