@@ -31,7 +31,9 @@
                 { 
                     case  ConsoleKey.Z:
                         me.Shot(enemy);
+                        
                         EnemyPC();
+                        
                         break;
                     case ConsoleKey.X:
                         me.Heal();
@@ -58,7 +60,7 @@
                 Random r = new Random();
                 int rand;
                 rand = r.Next(1, 3);
-
+                enemy.HodPC();
                 switch (rand)//компьютер работающий через рандом
 
                 {
@@ -68,7 +70,7 @@
                         { enemy.Shot(me); }
                         else
                         {
-                            if (enemy.HelPoint <= 50)
+                            if (enemy.HelPoint <= enemy.Life)
                             {
                                 enemy.Heal();
                             }

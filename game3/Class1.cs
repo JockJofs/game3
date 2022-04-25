@@ -14,6 +14,7 @@ namespace game3
         public int Patron { get; set; }
         public string Name { get; set; }
         public int Life { get; set; }
+
         
 
         void Ime.Shot(Ienemy enemy)
@@ -144,5 +145,9 @@ namespace game3
             Patron = 3;
         }
         
+        void Ienemy.HodPC()
+        {
+            Console.WriteLine("\nОбьявляю ход компьютера\n");
+        }
     }
 }

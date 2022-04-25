@@ -28,10 +28,12 @@ namespace game3
         int Patron { get => Patron; set => Patron = value; }
         int HelPoint { get => HelPoint; set => HelPoint = value; }
         int Life { get => Life; set => Life = value; }
+        string Hod { get => Hod; set => Hod = value; }
 
         void Shot(Ime enemy);
         void Heal();
         void Buy();
+        void HodPC();
 
     }
 }
