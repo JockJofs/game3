@@ -3,19 +3,13 @@
     class program
 
     {
-        enum Move
-        {
-            Shot,
-            Heal,
-            Buy
 
-        }
         static void Main()
         {
 
-            Ime me = new tank(100, 15, 40, 3, "Igrok") ;//характеристики моего танка 
+            Ime me = new tank(100, 15, 40, 3, "Igrok");//характеристики моего танка 
             Ienemy enemy = new tank(100, 15, 40, 3, "PC");//характеристики танка противника 
-           
+
 
             while (me.HelPoint > 0 && enemy.HelPoint > 0)
             {
@@ -28,12 +22,12 @@
                 Console.WriteLine("Покупка патронов :C");
 
                 switch (Console.ReadKey().Key)//управление для игрока по клавишам
-                { 
-                    case  ConsoleKey.Z:
+                {
+                    case ConsoleKey.Z:
                         me.Shot(enemy);
-                        
+
                         EnemyPC();
-                        
+
                         break;
                     case ConsoleKey.X:
                         me.Heal();
@@ -43,19 +37,19 @@
                         me.Buy();
                         EnemyPC();
                         break;
-                    
+
                     default:
                         Console.WriteLine("\nНажмите одну из перечисленых клавиш сверху\n");
                         break;
                 }
-             
+
                 Console.WriteLine("Нажмите любую клавишу чтобы продолжить");
                 Console.ReadKey();
                 Console.Clear();
             }
-            
 
-        void EnemyPC() 
+
+            void EnemyPC()
             {
                 Random r = new Random();
                 int rand;
@@ -105,8 +99,14 @@
             {
                 Console.WriteLine("Победа");
             }
+        }
+               enum Move
+        {
+            Shot,
+            Heal,
+            Buy
 
-           
+        }
+
     }
     }
-}
